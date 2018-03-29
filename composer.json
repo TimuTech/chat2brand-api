@@ -1,0 +1,8 @@
+{
+    "name": "timutech/chat2brand-api",
+    "autoload": {
+        "psr-4": {
+            "TimuTech\\Chat2Brand\\": "src/"
+        }
+    }
+}
