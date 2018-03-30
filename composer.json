@@ -1,5 +1,18 @@
 {
     "name": "timutech/chat2brand-api",
+    "description": "Package for Chat2Brand REST API",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alexander Glöss",
+            "email": "alexander@timu.co.za"
+        }
+    ],
+    "require": {
+        "php": "^7.1.1",
+        "illuminate/support": "^5.3",
+        "guzzlehttp/guzzle": "~6.0"
+    },
     "autoload": {
         "psr-4": {
             "TimuTech\\Chat2Brand\\": "src/"
