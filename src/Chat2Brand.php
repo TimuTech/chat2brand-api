@@ -3,7 +3,7 @@
 namespace TimuTech\Chat2Brand;
 
 use TimuTech\Chat2Brand\ApiProxy;
-use TimuTech\Chat2Brand\Builders\ClientFactory;
+use TimuTech\Chat2Brand\Factories\ClientFactory;
 use TimuTech\Chat2Brand\Contracts\ProviderContract;
 use TimuTech\Chat2Brand\Resources\Chat2BrandClient;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace TimuTech\Chat2Brand\Builders;
+namespace TimuTech\Chat2Brand\Factories;
 
 use TimuTech\Chat2Brand\Resources\Chat2BrandClient;
 
@@ -13,7 +13,7 @@ class ClientFactory
      * @param  string  $type
      * @param  array  $data
      * @param  bool  $multiple
-     * @return TimuTech\Chat2Brand\Resources\Chat2BrandClient || array
+     * @return TimuTech\Chat2Brand\Resources\Chat2BrandClient|array
      */
 	public function build($type, array $data, bool $multiple = false)
 	{
@@ -23,8 +23,8 @@ class ClientFactory
                 if ($multiple)
                 {
                     $users = [];
-                    foreach($data as $client)
-                        array_push($users, $this->chatClient($data));
+                    foreach($data['data'] as $client)
+                        array_push($users, $this->chatClient($client));
 
                     return $users;
                 }
@@ -43,6 +43,6 @@ class ClientFactory
         $buildData['avatar'] = $data['avatar'];
         $buildData['phone'] = $data['phone'];
 
-        return new Chat2BrandClient($buildData);
+        return (new Chat2BrandClient)->fill($buildData);
     }
 }

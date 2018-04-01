@@ -3,12 +3,12 @@
 namespace TimuTech\Chat2Brand;
 
 use GuzzleHttp\Client;
-use TimuTech\CodeCombat\Contracts\ApiContract;
+use TimuTech\Chat2Brand\Contracts\ApiContract;
 use TimuTech\Chat2Brand\Exceptions\ApiException;
 
 class ApiProxy implements ApiContract
 {
-    const ALLOWED_CLIENT_PARAMS = ['phone'];
+    const ALLOWED_CLIENT_PARAMS = ['phone', 'limit'];
 
 	protected $httpClient;
 	protected $apiUrl = 'https://api.chat2brand.co.za/v1/';

@@ -2,13 +2,26 @@
 
 namespace TimuTech\Chat2Brand\Resources\Abstracts;
 
+use Carbon\Carbon;
 use TimuTech\Chat2Brand\Exceptions\ResourceException;
+use TimuTech\Chat2Brand\Resources\Abstracts\ChatClient;
 
-abstract class ChatClient
+abstract class ChatMessage
 {
 	protected $id;
-    protected $name;
-    protected $avatar;
+    protected $text;
+    protected $photo;
+    protected $client_id;
+
+    /**
+     * TimuTech\Chat2Brand\Resources\Abstracts\ChatClient
+     */
+    protected $client;
+
+    /**
+     * Carbon\Carbon
+     */
+    protected $sent_at;
 
 	/**
     * Fill the class attributes from an associate array
@@ -23,9 +36,9 @@ abstract class ChatClient
 			$this->fill($data);
     }
     
-    public function setAvatar($url)
+    public function setText($text)
     {
-        $this->avatar = $avatar;
+        $this->text = $text;
 		
 		return $this;
     }
@@ -37,18 +50,33 @@ abstract class ChatClient
 		return $this;
 	}
 
-	public function setName($name)
+	public function setPhoto($url)
 	{
-		$this->name = $name;
+		$this->url = $url;
 
 		return $this;
-	}
+    }
+    
+    public function setClient(ChatClient $client)
+	{
+		$this->client = $client;
+
+		return $this;
+    }
+    
+    public function setSentAt(Carbon $date)
+    {
+        $this->sent_at = $date;
+    }
 
 	public function fill($data)
 	{
 		$this->id = $data['id'];
-        $this->name = $data['name'];
-        $this->avatar = $data['avatar'];
+        $this->text = $data['text'];
+        $this->photo = $data['photo'] ?: null;
+        $this->client_id = $data['client_id'] ?: null;
+        $this->client = $data['client'] ?: null;
+        $this->sent_at = $data['sent_at'] ?: null;
 
 		return $this;
 	}
