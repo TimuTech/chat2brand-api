@@ -9,19 +9,6 @@ abstract class ChatClient
 	protected $id;
     protected $name;
     protected $avatar;
-
-	/**
-    * Fill the class attributes from an associate array
-    * 
-    * @param array $data
-    */
-	public function __construct(array $data)
-	{
-		if (!$this->isAssociative($data))
-			throw ResourceException::notAssociative();
-		else
-			$this->fill($data);
-    }
     
     public function setAvatar($url)
     {

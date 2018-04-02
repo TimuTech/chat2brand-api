@@ -8,4 +8,9 @@ class ApiException extends \Exception
 	{
 		return new static("Invalid get parameters for clients. Valid parameters: ".$params);
 	}
+
+	public static function missingParameters(string $params)
+	{
+		return new static("Missing parameters for api proxy, needs: ".$params);
+	}
 }

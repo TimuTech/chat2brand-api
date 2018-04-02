@@ -18,6 +18,18 @@ class Chat2Brand implements ProviderContract
 		$this->httpService = new ApiProxy($accessToken);
     }
 
+    public function sendMessage(ChatClient $client, string $transport, int $channelId, string $text)
+    {
+        return $this->httpService->createMessage($client->id, $transport, $channelId, $text);
+    }
+
+    public function getClient($id)
+    {
+        $data = $this->httpService->getClient($id);
+
+        return $this->clientFactory->build(Chat2BrandClient::class, $data);
+    }
+
     public function getClients(array $params = [])
     {
         $data = $this->httpService->getClients($params);

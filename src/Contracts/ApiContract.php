@@ -2,8 +2,21 @@
 
 namespace TimuTech\Chat2Brand\Contracts;
 
+use TimuTech\Chat2Brand\Resources\Chat2BrandClient;
+
 interface ApiContract
 {
+    /**
+     * Create chat message
+     * 
+     * @param  int  $clientId
+     * @param  string  $transport
+     * @param  int  $channelId
+     * @param  string  $text
+     * @return array
+     */
+    public function createMessage(int $clientId, string $transport, int $channelId, string $text);
+
     /**
      * Get clients
      * 
@@ -11,4 +24,12 @@ interface ApiContract
      * @return array
      */
     public function getClients(array $params = []);
+
+    /**
+     * Get client
+     * 
+     * @param  integer  $id
+     * @return array
+     */
+    public function getClient($id);
 }

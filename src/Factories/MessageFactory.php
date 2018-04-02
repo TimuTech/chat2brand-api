@@ -20,7 +20,7 @@ class MessageFactory
 	{
 		switch($type)
 		{
-            case Chat2BrandClient::class:
+            case Chat2BrandMessage::class:
                 if ($multiple)
                 {
                     $users = [];
@@ -43,10 +43,11 @@ class MessageFactory
         $buildData['text'] = $data['text'];
         $buildData['photo'] = $data['photo'];
         $buildData['client_id'] = $data['client_id'];
-        $buildData['sent_at'] = (Carbon::parse($data['sent_at']));
+        $buildData['sent_at'] = (Carbon::parse($data['created']));
         $buildData['transport'] = $data['transport'];
         $buildData['type'] = $data['type'];
         $buildData['read'] = $data['read'];
+        $message = (new Chat2BrandMessage)->fill($buildData);
 
         return (new Chat2BrandMessage)->fill($buildData);
     }

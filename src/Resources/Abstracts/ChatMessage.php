@@ -22,19 +22,6 @@ abstract class ChatMessage
      * Carbon\Carbon
      */
     protected $sent_at;
-
-	/**
-    * Fill the class attributes from an associate array
-    * 
-    * @param array $data
-    */
-	public function __construct(array $data)
-	{
-		if (!$this->isAssociative($data))
-			throw ResourceException::notAssociative();
-		else
-			$this->fill($data);
-    }
     
     public function setText($text)
     {
@@ -75,7 +62,7 @@ abstract class ChatMessage
         $this->text = $data['text'];
         $this->photo = $data['photo'] ?: null;
         $this->client_id = $data['client_id'] ?: null;
-        $this->client = $data['client'] ?: null;
+        // $this->client = $data['client'] ?: null;
         $this->sent_at = $data['sent_at'] ?: null;
 
 		return $this;
