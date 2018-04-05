@@ -7,6 +7,14 @@ use TimuTech\Chat2Brand\Resources\Abstracts\ChatClient;
 interface ProviderContract
 {
     /**
+     * Update client
+     * 
+     * @param  TimuTech\Chat2Brand\Resources\Abstracts\ChatClient  $client
+     * @return array
+     */
+    public function updateClient(ChatClient $client);
+
+    /**
      * Send message to client
      * 
      * @param  TimuTech\Chat2Brand\Resources\Abstracts\ChatClient  $client

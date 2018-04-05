@@ -15,7 +15,12 @@ abstract class ChatClient
         $this->avatar = $avatar;
 		
 		return $this;
-    }
+	}
+	
+	public function getAvatar()
+	{
+		return $this->avatar;
+	}
 
 	public function setID($id)
 	{
@@ -24,11 +29,21 @@ abstract class ChatClient
 		return $this;
 	}
 
+	public function getID()
+	{
+		return $this->id;
+	}
+
 	public function setName($name)
 	{
 		$this->name = $name;
 
 		return $this;
+	}
+
+	public function getName()
+	{
+		return $this->name;
 	}
 
 	public function fill($data)

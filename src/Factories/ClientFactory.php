@@ -30,7 +30,7 @@ class ClientFactory
                 }
                 else
                 {
-                    return $this->chatClient($data);
+                    return $this->chatClient($data['data']);
                 }	    
 		}
     }

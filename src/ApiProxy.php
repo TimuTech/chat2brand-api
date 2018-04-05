@@ -26,6 +26,20 @@ class ApiProxy implements ApiContract
 			]);
     }
 
+    public function updateClient($id, array $clientData)
+    {
+        if (!$id || !isset($clientData['name']))
+            throw ApiException::missingParameters('client_id, name');
+
+		$response = $this->httpClient->put($this->apiUrl.'clients/'.$id, [
+				'json' => [
+					'nickname' => $clientData['name']
+				]
+			]);
+
+		return json_decode($response->getBody(), true);
+    }
+
     public function createMessage(int $clientId, string $transport, int $channelId, string $text)
     {
         if (!$clientId || !$transport || !$channelId)

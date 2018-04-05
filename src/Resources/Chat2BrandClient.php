@@ -20,5 +20,10 @@ class Chat2BrandClient extends ChatClient
 		$this->phone = $phone;
 
 		return $this;
-	}
+    }
+    
+    public function getPhone()
+    {
+        return $this->phone;
+    }
 }

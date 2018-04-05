@@ -13,16 +13,37 @@ class Chat2BrandMessage extends ChatMessage
     public function setTransport(string $transport)
     {
         $this->transport = $transport;
+
+        return $this;
+    }
+
+    public function getTransport()
+    {
+        return $this->transport;
     }
 
     public function setType(string $type)
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    public function getType()
+    {
+        return $this->type;
     }
 
     public function setRead(string $read)
     {
         $this->read = $read;
+
+        return $this;
+    }
+
+    public function getRead()
+    {
+        return $this->read;
     }
 
     public function fill($data)

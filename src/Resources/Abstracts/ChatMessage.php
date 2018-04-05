@@ -28,7 +28,12 @@ abstract class ChatMessage
         $this->text = $text;
 		
 		return $this;
-    }
+	}
+	
+	public function getText()
+	{
+		return $this->text;
+	}
 
 	public function setID($id)
 	{
@@ -37,24 +42,56 @@ abstract class ChatMessage
 		return $this;
 	}
 
+	public function getID()
+	{
+		return $this->id;
+	}
+
 	public function setPhoto($url)
 	{
 		$this->url = $url;
 
 		return $this;
-    }
+	}
+	
+	public function getPhoto()
+	{
+		return $this->photo;
+	}
     
     public function setClient(ChatClient $client)
 	{
 		$this->client = $client;
 
 		return $this;
-    }
+	}
+	
+	public function getClient()
+	{
+		return $this->client;
+	}
     
     public function setSentAt(Carbon $date)
     {
         $this->sent_at = $date;
-    }
+	}
+	
+	public function getSentAt()
+	{
+		return $this->sent_at;
+	}
+
+	public function setClientID(int $id)
+	{
+		$this->client_id = $id;
+
+		return $this;
+	}
+
+	public function getClientId()
+	{
+		return $this->client_id;
+	}
 
 	public function fill($data)
 	{
