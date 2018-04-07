@@ -39,7 +39,7 @@ class MessageFactory
     public function chatMessage($data)
     {
         $buildData = [];
-        $buildData['id'] = $data['id'];
+        $buildData['id'] = $data['message_id'];
         $buildData['text'] = $data['text'];
         $buildData['photo'] = $data['photo'];
         $buildData['client_id'] = $data['client_id'];
