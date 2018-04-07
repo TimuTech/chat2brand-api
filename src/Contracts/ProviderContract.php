@@ -3,6 +3,7 @@
 namespace TimuTech\Chat2Brand\Contracts;
 
 use TimuTech\Chat2Brand\Resources\Abstracts\ChatClient;
+use TimuTech\Chat2Brand\Resources\Abstracts\ChatMessage;
 
 interface ProviderContract
 {
@@ -18,12 +19,12 @@ interface ProviderContract
      * Send message to client
      * 
      * @param  TimuTech\Chat2Brand\Resources\Abstracts\ChatClient  $client
-     * @param  string  $transport
+     * @param  TimuTech\Chat2Brand\Resources\Abstracts\ChatMessage  $message
      * @param  int  $channelId
      * @param  string  $text
      * @return array
      */
-    public function sendMessage(ChatClient $client, string $transport, int $channelId, string $text);
+    public function sendMessage(ChatClient $client, ChatMessage $message, int $channelId, string $text);
 
     /**
      * Get clients
