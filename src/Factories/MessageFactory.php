@@ -41,12 +41,12 @@ class MessageFactory
         $buildData = [];
         $buildData['id'] = $data['message_id'];
         $buildData['text'] = $data['text'];
-        $buildData['photo'] = $data['photo'];
+        $buildData['photo'] = isset($data['photo']) ? $data['photo'] : null;
         $buildData['client_id'] = $data['client_id'];
-        $buildData['sent_at'] = (Carbon::parse($data['created']));
+        $buildData['sent_at'] = isset($data['created']) ? (Carbon::parse($data['created'])) : null;
         $buildData['transport'] = $data['transport'];
         $buildData['type'] = $data['type'];
-        $buildData['read'] = $data['read'];
+        $buildData['read'] = isset($data['read']) ? $data['read'] : null;
         $message = (new Chat2BrandMessage)->fill($buildData);
 
         return (new Chat2BrandMessage)->fill($buildData);
