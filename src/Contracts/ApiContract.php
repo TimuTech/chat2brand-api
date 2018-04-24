@@ -7,13 +7,22 @@ use TimuTech\Chat2Brand\Resources\Chat2BrandClient;
 interface ApiContract
 {
     /**
+     * Assign message to operator
+     * 
+     * @param  integer  $messageId
+     * @param  integer  $operatorId
+     * @return array
+     */
+    public function assignMessage(int $messageId, int $operatorId);
+
+    /**
      * Update client
      * 
      * @param  integer  $id
      * @param  array  $clientData
      * @return array
      */
-    public function updateClient($id, array $clientData);
+    public function updateClient(int $id, array $clientData);
 
     /**
      * Create chat message
@@ -40,5 +49,5 @@ interface ApiContract
      * @param  integer  $id
      * @return array
      */
-    public function getClient($id);
+    public function getClient(int $id);
 }

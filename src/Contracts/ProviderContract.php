@@ -4,9 +4,19 @@ namespace TimuTech\Chat2Brand\Contracts;
 
 use TimuTech\Chat2Brand\Resources\Abstracts\ChatClient;
 use TimuTech\Chat2Brand\Resources\Abstracts\ChatMessage;
+use TimuTech\Chat2Brand\Resources\Abstracts\SupportOperator;
 
 interface ProviderContract
 {
+    /**
+     * Assign chat message to operator
+     * 
+     * @param  TimuTech\Chat2Brand\Resources\Abstracts\ChatMessage  $client
+     * @param  TimuTech\Chat2Brand\Resources\Abstracts\SupportOperator  $operator
+     * @return array
+     */
+    public function assignMessage(ChatMessage $message, SupportOperator $operator);
+
     /**
      * Update client
      * 

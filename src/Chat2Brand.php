@@ -8,6 +8,7 @@ use TimuTech\Chat2Brand\Contracts\ProviderContract;
 use TimuTech\Chat2Brand\Resources\Chat2BrandClient;
 use TimuTech\Chat2Brand\Resources\Abstracts\ChatClient;
 use TimuTech\Chat2Brand\Resources\Abstracts\ChatMessage;
+use TimuTech\Chat2Brand\Resources\Abstracts\SupportOperator;
 
 class Chat2Brand implements ProviderContract
 {
@@ -18,6 +19,11 @@ class Chat2Brand implements ProviderContract
 	{
 		$this->clientFactory = new ClientFactory();
 		$this->httpService = new ApiProxy($accessToken);
+    }
+
+    public function assignMessage(ChatMessage $message, SupportOperator $operator)
+    {
+        return $this->httpService->assignMessage($message->getID(), $operator->getID());
     }
 
     public function updateClient(ChatClient $client)

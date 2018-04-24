@@ -7,7 +7,6 @@ use TimuTech\Chat2Brand\Contracts\ApiContract;
 use TimuTech\Chat2Brand\Exceptions\ApiException;
 use TimuTech\Chat2Brand\Resources\Chat2BrandClient;
 
-
 class ApiProxy implements ApiContract
 {
     const ALLOWED_CLIENT_PARAMS = ['phone', 'limit'];
@@ -26,7 +25,21 @@ class ApiProxy implements ApiContract
 			]);
     }
 
-    public function updateClient($id, array $clientData)
+    public function assignMessage(int $messageId, int $operatorId)
+    {
+        if (!$messageId || !$operatorId)
+            throw ApiException::missingParameters('message_id, operator_id');
+
+		$response = $this->httpClient->post($this->apiUrl.'messages/'.$messageId.'/assign', [
+				'json' => [
+					'operator_id' => $operatorId
+				]
+			]);
+
+		return json_decode($response->getBody(), true);
+    }
+
+    public function updateClient(int $id, array $clientData)
     {
         if (!$id || !isset($clientData['name']))
             throw ApiException::missingParameters('client_id, name');
@@ -69,7 +82,7 @@ class ApiProxy implements ApiContract
         return json_decode($response->getBody(), true);
     }
 
-    public function getClient($id)
+    public function getClient(int $id)
     {
         if (!$id)
             throw ApiException::missingParameters('client_id');
