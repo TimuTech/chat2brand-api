@@ -77,7 +77,7 @@ abstract class SupportOperator
 	public function fill(array $data)
 	{
 		$this->id = $data['id'];
-        $this->email = $data['email'];
+        $this->email = isset($data['email']) ? $data['email'] : null;
         $this->online = isset($data['online']) ? $data['online'] : null;
         $this->last_name = isset($data['last_name']) ? $data['last_name'] : null;
         $this->first_name = isset($data['first_name']) ? $data['first_name'] : null;
