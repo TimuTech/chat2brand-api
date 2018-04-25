@@ -2,6 +2,7 @@
 
 namespace TimuTech\Chat2Brand\Contracts;
 
+use TimuTech\Chat2Brand\Resources\Chat2BrandDialogue;
 use TimuTech\Chat2Brand\Resources\Abstracts\ChatClient;
 use TimuTech\Chat2Brand\Resources\Abstracts\ChatMessage;
 use TimuTech\Chat2Brand\Resources\Abstracts\SupportOperator;
@@ -11,12 +12,10 @@ interface ProviderContract
     /**
      * Assign chat message to operator
      * 
-     * @param  int  $dialogueId
-     * @param  int  $operatorId
-     * @param  string  $status
+     * @param  TimuTech\Chat2Brand\Resources\Chat2BrandDialogue  $dialogue
      * @return array
      */
-    public function updateDialogue(int $dialogueId, int $operatorId, string $status);
+    public function updateDialogue(Chat2BrandDialogue $dialogue);
 
     /**
      * Assign chat message to operator

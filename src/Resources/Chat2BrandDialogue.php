@@ -2,6 +2,7 @@
 
 namespace TimuTech\Chat2Brand\Resources;
 
+use Carbon\Carbon;
 use TimuTech\Chat2Brand\Resources\Abstracts\ChatClient;
 
 class Chat2BrandDialogue
