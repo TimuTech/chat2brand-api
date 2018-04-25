@@ -11,6 +11,16 @@ interface ProviderContract
     /**
      * Assign chat message to operator
      * 
+     * @param  int  $dialogueId
+     * @param  int  $operatorId
+     * @param  string  $status
+     * @return array
+     */
+    public function updateDialogue(int $dialogueId, int $operatorId, string $status);
+
+    /**
+     * Assign chat message to operator
+     * 
      * @param  TimuTech\Chat2Brand\Resources\Abstracts\ChatMessage  $client
      * @param  TimuTech\Chat2Brand\Resources\Abstracts\SupportOperator  $operator
      * @return array

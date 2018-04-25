@@ -9,10 +9,23 @@ class Chat2BrandMessage extends ChatMessage
     protected $transport;
     protected $type;
     protected $read;
+    protected $dialog_id;
 
     public function setTransport(string $transport)
     {
         $this->transport = $transport;
+
+        return $this;
+    }
+
+    public function getDialogueID()
+    {
+        return $this->transport;
+    }
+
+    public function setDialogueID(int $id)
+    {
+        $this->dialog_id = $id;
 
         return $this;
     }
@@ -51,6 +64,7 @@ class Chat2BrandMessage extends ChatMessage
 		$this->transport = $data['transport'] ?: null;
         $this->type = $data['type'] ?: null;
         $this->read = $data['read'] ?: null;
+        $this->dialog_id = isset($data['dialog_id']) ? $data['dialog_id'] : null;
 
 		return parent::fill($data);
 	}

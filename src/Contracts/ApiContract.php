@@ -7,6 +7,15 @@ use TimuTech\Chat2Brand\Resources\Chat2BrandClient;
 interface ApiContract
 {
     /**
+     * Update chat dialogue
+     * 
+     * @param  integer  $messageId
+     * @param  array  $dialogueData
+     * @return array
+     */
+    public function updateDialogue(int $dialogueId, array $dialogueData);
+
+    /**
      * Assign message to operator
      * 
      * @param  integer  $messageId

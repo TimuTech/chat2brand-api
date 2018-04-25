@@ -48,6 +48,7 @@ class MessageFactory
         $buildData['type'] = $data['type'];
         $buildData['read'] = isset($data['read']) ? $data['read'] : null;
         $buildData['channel_id'] = isset($data['channel_id']) ? $data['channel_id'] : null;
+        $buildData['dialog_id'] = isset($data['dialog_id']) ? $data['dialog_id'] : null;
         $message = (new Chat2BrandMessage)->fill($buildData);
 
         return (new Chat2BrandMessage)->fill($buildData);

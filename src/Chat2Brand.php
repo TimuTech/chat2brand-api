@@ -6,6 +6,7 @@ use TimuTech\Chat2Brand\ApiProxy;
 use TimuTech\Chat2Brand\Factories\ClientFactory;
 use TimuTech\Chat2Brand\Contracts\ProviderContract;
 use TimuTech\Chat2Brand\Resources\Chat2BrandClient;
+use TimuTech\Chat2Brand\Resources\Chat2BrandDialogue;
 use TimuTech\Chat2Brand\Resources\Abstracts\ChatClient;
 use TimuTech\Chat2Brand\Resources\Abstracts\ChatMessage;
 use TimuTech\Chat2Brand\Resources\Abstracts\SupportOperator;
@@ -19,6 +20,14 @@ class Chat2Brand implements ProviderContract
 	{
 		$this->clientFactory = new ClientFactory();
 		$this->httpService = new ApiProxy($accessToken);
+    }
+
+    public function updateDialogue(Chat2BrandDialogue $dialogue)
+    {
+        return $this->httpService->updateDialogue($dialogue->getID(), [
+            'operator_id' => $dialogue->getOperatorID(),
+            'state' => $dialogue->getState()
+        ]);
     }
 
     public function assignMessage(ChatMessage $message, SupportOperator $operator)

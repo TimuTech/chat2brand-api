@@ -25,6 +25,21 @@ class ApiProxy implements ApiContract
 			]);
     }
 
+    public function updateDialogue(int $dialogueId, array $dialogueData)
+    {
+        if (!$dialogueId || !$dialogueData['operator_id'])
+            throw ApiException::missingParameters('dialog_id, operator_id');
+
+		$response = $this->httpClient->put($this->apiUrl.'dialogs/'.$dialogueId, [
+				'json' => [
+                    'operator_id' => $dialogueData['operator_id'],
+                    'state' => isset($dialogueData['state']) ? $dialogueData['state'] : ''
+				]
+			]);
+
+		return json_decode($response->getBody(), true);
+    }
+
     public function assignMessage(int $messageId, int $operatorId)
     {
         if (!$messageId || !$operatorId)
