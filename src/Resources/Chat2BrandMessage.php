@@ -20,7 +20,7 @@ class Chat2BrandMessage extends ChatMessage
 
     public function getDialogueID()
     {
-        return $this->transport;
+        return $this->dialog_id;
     }
 
     public function setDialogueID(int $id)

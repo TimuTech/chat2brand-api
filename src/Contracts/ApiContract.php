@@ -9,7 +9,7 @@ interface ApiContract
     /**
      * Update chat dialogue
      * 
-     * @param  integer  $messageId
+     * @param  integer  $dialogueId
      * @param  array  $dialogueData
      * @return array
      */
